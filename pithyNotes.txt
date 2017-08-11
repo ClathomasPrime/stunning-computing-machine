@@ -1,0 +1,32 @@
+
+= Good UX
+  * Putting harmless extension in default haskell
+    * TupleSections, ScopedTypeVariables
+  * Opens to REPL
+  * Discoverable from completely zero
+  * In order for me to be able to effectively write Haskell,
+    tiny changes will NEED to produce VERY fast type checking
+
+  * A distributed VCS with an emphasis on *sharding* - 
+    you have a unified monorepo but you only need to checkout what 
+    you work with
+
+  * ProtoOptions --> Options --------> Config (how to run computation)
+    (raw user opts)  (resolved)  \---> Targets (what to run computation on)
+
+= Bad UX
+  * Inverting the behavior of something based on options
+    * this is VERY confusing if you haven't gotten used to a setting yet
+    * e.g. `:set gdefault` causes `s///g` to be *local* instead of *global*
+  * -Werror durring debugging/development (i.e. before linting/push phase)
+  * GHCi's module importing system
+    * THREE different commands doing similar things with undiscoverable
+      differences/nuances.
+
+= Haskell Stuff
+  * : ... [*]M  === I want module M interpreted
+  * :module [+|-] ([*]M)+
+    * [add|remove] a list of modules [maybe their whole top level scope]
+  * :load, :add, :reload all change what is currently loaded
+  * :module and import modify what is currently in scope
+    * :load, :add, :reload automatically change what is in scope too
